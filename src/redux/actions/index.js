@@ -1,4 +1,4 @@
-import {ANSWER, INCREMENT, DECREMENT, GET__QUESTIONS} from './types'
+import {ANSWER, INCREMENT,  ENTER__NAME} from './types'
 
 export const studentAnswer = (payload) => {
     return {
@@ -14,10 +14,13 @@ export const increment = (payload) => {
     }
 }
 
-export const decrement = (payload) => {
+export const enterName = (payload) => {
     return {
-        type : DECREMENT,
+        type : ENTER__NAME,
         payload
     }
 }
+
+
+
 

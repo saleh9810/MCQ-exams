@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import {increment, studentAnswer} from "../../redux/actions";
 import './exam.css'
 
@@ -10,26 +8,38 @@ const Exam = () => {
   const questions = useSelector((state) => state.questionsReducer.questions);
   let questionCounter = useSelector((state) => state.questionsReducer.questionCounter);
   const  dispatch = useDispatch();
-  const rendom = Math.floor(Math.random() * questions.length)
 
   const addAnswer = (answer) => {
     dispatch(studentAnswer(answer))
         dispatch(increment(1))
   }
   
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
 
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
 
-
-  
-  console.log(rendom);
-
- const submit = () => {
-    if(questionCounter === 4) {
-        return (
-            <Link className="btn btn-primary" to="/result" >Submit </Link> 
-        )
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
     }
- }
+
+    return array;
+  }
+
+
+
+  if (questionCounter === 0) {
+
+    shuffle(questions);
+
+  }
+
+
  
 
   return (
@@ -45,8 +55,6 @@ const Exam = () => {
                     
           );        
         })}
-
-        {submit()}
 
       </div>
     </section>

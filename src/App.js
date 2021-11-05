@@ -1,8 +1,7 @@
 import './App.css';
-import Exam from './components/exam/Exam';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import Result from './components/result/Result';
-import Header from './components/header/Header';
+import Home from './components/home/Home';
 import history from './history';
 
 
@@ -10,17 +9,17 @@ import history from './history';
 function App() {
   return (
     <div className="App">
-       <BrowserRouter history={history}>
+       <Router history={history}>
         <Switch>
           <Route exact path="/">
-            <Header />
+            <Home />
           </Route>
           <Route  path="/result">
             <Result />
           </Route>
         
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

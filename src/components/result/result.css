@@ -1,0 +1,10 @@
+.resultBox {
+    background-color: rgb(8, 204, 188);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 80px;
+}

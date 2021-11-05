@@ -1,4 +1,4 @@
-import {ANSWER, INCREMENT, DECREMENT} from "../actions/types"
+import {ANSWER, INCREMENT,ENTER__NAME} from "../actions/types"
 import history from "../../history"
 
 const initialState = {
@@ -54,12 +54,19 @@ const initialState = {
         }
     ],
     questionCounter :  0,
+    name : '',
     answers : []
 }
 
 function  questionsReducer(state = initialState, action) {
 
     switch(action.type) {
+
+        case ENTER__NAME :
+            return {
+                ...state,
+                name : state.name = action.payload
+            }
 
         
         case ANSWER : 
@@ -76,7 +83,7 @@ function  questionsReducer(state = initialState, action) {
          
        case INCREMENT : 
        if(state.questionCounter === 4) {
-           history.push('/result')
+        history.push('/result')
            return {
                ...state,
                questionCounter : state.questionCounter = 4,
