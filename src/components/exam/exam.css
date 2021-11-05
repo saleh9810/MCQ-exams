@@ -1,0 +1,16 @@
+
+ul {
+    list-style: none    ;
+}
+li {
+    padding: 20px;
+    font-size: 25px;
+    background-color: rgb(223, 223, 223);
+}
+
+li:active {
+    background-color: rgb(8, 204, 188);
+    color: #fff;
+
+}
+
