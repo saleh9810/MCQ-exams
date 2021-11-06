@@ -27,8 +27,7 @@ const Home = () => {
             className="btn btn-danger"
             onClick={() =>  dispatch(enterName(prompt("Enter Your Name")))}
           >
-            {" "}
-            Add Your name{" "}
+            Add Your name
           </button>
         </div>
       );
