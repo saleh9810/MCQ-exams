@@ -39,6 +39,9 @@ const Exam = () => {
 
   }
 
+  const d = new Date();
+
+
 
  
 
@@ -49,8 +52,8 @@ const Exam = () => {
 
         {questions[questionCounter].answers.map((answer) => {
           return (
-            <ul className="mt-4">
-              <li onClick={() => addAnswer(answer)}>{answer.answerText}</li>
+            <ul  className="mt-4 me-4">
+              <li  onClick={() => addAnswer(answer)}>{answer.answerText}</li>
             </ul>   
                     
           );        

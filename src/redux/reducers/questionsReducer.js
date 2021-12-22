@@ -82,7 +82,7 @@ function  questionsReducer(state = initialState, action) {
          
          
        case INCREMENT : 
-       if(state.questionCounter === 4) {
+       if(state.questionCounter === state.questions.length - 1) {
         history.push('/result')
         return {
             ...state,

@@ -35,7 +35,7 @@ const Home = () => {
       return (
         <div>
           <div className="text-center text-light bg-primary">
-            <h5>
+            <h5 className="pt-3">
               question {questionCounter + 1} of {questions.length}
             </h5>
             <h3 className=" pb-5">Good Luck {name}</h3>
