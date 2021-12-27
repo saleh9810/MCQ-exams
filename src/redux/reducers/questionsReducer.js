@@ -68,14 +68,15 @@ function  questionsReducer(state = initialState, action) {
             if(state.emptyAnswers === 1) {
                 return {
                     ...state,
-                    answers : state.answers = []
+                    answers : state.answers = [],
+                    name : state.name = action.payload
+
                 }
             }
-           
-           return {
-                
+           return {  
                 ...state,
                 name : state.name = action.payload
+
             }
 
         
