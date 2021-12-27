@@ -1,9 +1,10 @@
-import {ANSWER, INCREMENT,  ENTER__NAME} from './types'
+import {ANSWER, INCREMENT,  ENTER__NAME, EMPTY__ANSWERS} from './types'
 
-export const studentAnswer = (payload) => {
+export const studentAnswer = (answer, question) => {
     return {
         type : ANSWER,
-        payload
+        answer,
+        question
     }
 }
 
@@ -13,6 +14,14 @@ export const increment = (payload) => {
         payload
     }
 }
+
+export const emptyAnswers = (payload) => {
+    return {
+        type : EMPTY__ANSWERS,
+        payload
+    }
+}
+
 
 export const enterName = (payload) => {
     return {

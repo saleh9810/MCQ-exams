@@ -1,18 +1,27 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {increment, studentAnswer} from "../../redux/actions";
+import {increment, studentAnswer, emptyAnswers} from "../../redux/actions";
 import './exam.css'
 
 
 const Exam = () => {
   const questions = useSelector((state) => state.questionsReducer.questions);
   let questionCounter = useSelector((state) => state.questionsReducer.questionCounter);
+
+
   const  dispatch = useDispatch();
 
-  const addAnswer = (answer) => {
-    dispatch(studentAnswer(answer))
+
+
+  const addAnswer = (answer, title) => {
+    dispatch(studentAnswer(answer, title))
         dispatch(increment(1))
+        dispatch(emptyAnswers(0))
+
   }
+
+
+
   
   function shuffle(array) {
     let currentIndex = array.length,
@@ -39,7 +48,6 @@ const Exam = () => {
 
   }
 
-  const d = new Date();
 
 
 
@@ -52,8 +60,8 @@ const Exam = () => {
 
         {questions[questionCounter].answers.map((answer) => {
           return (
-            <ul  className="mt-4 me-4">
-              <li  onClick={() => addAnswer(answer)}>{answer.answerText}</li>
+            <ul key={answer.answerText} className="mt-4 me-4">
+              <li  onClick={() => addAnswer(answer, questions[questionCounter] )}>{answer.answerText}</li>
             </ul>   
                     
           );        

@@ -1,4 +1,4 @@
-import {ANSWER, INCREMENT,ENTER__NAME} from "../actions/types"
+import {ANSWER, INCREMENT,ENTER__NAME, EMPTY__ANSWERS} from "../actions/types"
 import history from "../../history"
 
 const initialState = {
@@ -29,7 +29,7 @@ const initialState = {
                 {answerText : 'New York', isCorrect : false},
                 {answerText : 'Dubai', isCorrect : false},
                 {answerText : 'London', isCorrect : true},
-                {answerText : ' Pires', isCorrect : false},
+                {answerText : ' Paris', isCorrect : false},
             ] 
         },
 
@@ -54,6 +54,7 @@ const initialState = {
         }
     ],
     questionCounter :  0,
+    emptyAnswers: 0,
     name : '',
     answers : []
 }
@@ -61,32 +62,51 @@ const initialState = {
 function  questionsReducer(state = initialState, action) {
 
     switch(action.type) {
+        
 
         case ENTER__NAME :
-            return {
+            if(state.emptyAnswers === 1) {
+                return {
+                    ...state,
+                    answers : state.answers = []
+                }
+            }
+           
+           return {
+                
                 ...state,
                 name : state.name = action.payload
             }
 
         
         case ANSWER : 
-            
-        if(state.answers.some(answer => answer.answerText === action.payload.answerText) || action.payload.isCorrect === false) {
+        
+        if(state.answers.some(answer => answer.answerText === action.answer.answerText) || action.answer.isCorrect === false ) {
             return state 
         } 
+
         return {
             ...state,
-            answers : [action.payload, ...state.answers]
+            answers : [action.question, ...state.answers]
 
          } 
          
+         case  EMPTY__ANSWERS : { 
+             
+        
+             return {
+                 ...state,
+                 emptyAnswers : state.emptyAnswers = action.payload
+             }
+         }
          
        case INCREMENT : 
        if(state.questionCounter === state.questions.length - 1) {
         history.push('/result')
         return {
             ...state,
-            questionCounter : state.questionCounter = 0
+            questionCounter : state.questionCounter = 0,
+            
         }
 
        }

@@ -1,10 +1,47 @@
-.resultBox {
-    background-color: rgb(8, 204, 188);
+.correctAnswers h3{
+    background-color: rgb(0, 49, 211);
+    padding: 1rem;
     color: rgb(255, 255, 255);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    padding: 80px;
+    margin-top: 1rem;
+    font-size: 20px;
 }
+
+.correctAnswers h3 span, .WrongAnswers h3 span{
+    color: rgb(0, 0, 0);
+    margin-left: 5px;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border-radius: 5px;
+   
+    
+}
+
+.WrongAnswers h3 {
+    background-color: rgb(204, 8, 8);
+    padding: 1rem;
+    color: rgb(255, 255, 255);
+    margin-top: 1rem;
+    font-size: 20px;
+
+}
+
+
+.again {
+ font-weight: 700 !important;
+ margin-top: 2rem;
+ background-color: rgb(41, 41, 41) !important;
+ color: #fff !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .correctAnswers h3 span, .WrongAnswers h3 span{
+        margin-left: 3px;
+        font-size: 16px;
+        padding: 2px;
+        border-radius: 5px;
+  
+    }
+    
+    
+  }
