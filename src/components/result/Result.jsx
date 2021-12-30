@@ -45,6 +45,14 @@ const Result = () => {
       let  wrongQuestions = questions.filter(function(item) {
             return !result.includes(item);
         })
+
+        if(wrongQuestions.length === 0) {
+            return (
+                <div>
+                    <h3>You didn't get any wrong answer </h3>
+                </div>
+            )
+        }
         return (
         wrongQuestions.map(item => {
             let answer = item.answers.filter(isCorrect => isCorrect.isCorrect === true)
